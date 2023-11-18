@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 @RestController
-@RequestMapping("test")
+
 public class SchoolSystemApplication {
 
 
@@ -16,6 +16,11 @@ public class SchoolSystemApplication {
 		SpringApplication.run(SchoolSystemApplication.class, args);
 
 
-	}
 
+	}
+@GetMapping("/")
+	public String apiRoot(){
+return ("hello word");
+
+}
 }

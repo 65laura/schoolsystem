@@ -18,9 +18,9 @@ import java.util.UUID;
 public class Course {
     @Id
     @Column
-    private UUID CourseId;
+    private UUID courseId;
     @Column
-    private String CourseName;
+    private String courseName;
     @Column
     private String CourseDuration;
     @OneToMany(cascade = CascadeType.ALL)
