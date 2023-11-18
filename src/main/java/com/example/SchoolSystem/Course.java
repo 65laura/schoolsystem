@@ -24,7 +24,7 @@ public class Course {
     @Column
     private String CourseDuration;
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "CourseId",referencedColumnName = "CourseId")
+    @JoinColumn(name = "course_id")
     private List<Marks> marks;
     @OneToOne(cascade = CascadeType.ALL)
     private Teacher teacher;

@@ -19,9 +19,9 @@ import java.util.UUID;
 public class Finances {
     @Id
     @Column
-    private UUID FinanceId;
+    private UUID financeId;
     @Column
-    private float FeesPaid;
+    private float feesPaid;
     @Column
-    private float Funding;
+    private float funding;
 }

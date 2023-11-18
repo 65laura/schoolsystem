@@ -22,7 +22,7 @@ public class Staff {
     @Column
     float Salary;
     @OneToOne(mappedBy = "staff")
-    @JoinColumn(name = "fk_DepartmentName")
+    @JoinColumn(name = "fk_department_name")
     private Departments departments;
 
 }

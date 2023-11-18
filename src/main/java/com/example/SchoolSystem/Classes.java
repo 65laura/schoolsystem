@@ -16,9 +16,9 @@ import java.util.UUID;
 public class Classes {
     @Id
     @Column(name = "ClassId",nullable = false)
-    private UUID ClassID;
+    private UUID classID;
     @Column(name = "ClassName",nullable = false)
-    private String ClassName;
+    private String className;
     @OneToOne(mappedBy = "classes")
     private StudentEntity studentEntity;
 

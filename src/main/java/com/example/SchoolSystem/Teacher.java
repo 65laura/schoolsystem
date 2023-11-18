@@ -18,19 +18,19 @@ import java.util.UUID;
 public class Teacher {
     @Id
     @Column
-    private UUID TeachersId;
+    private UUID teachersId;
     @Column
-    private String TeachersName;
+    private String teachersName;
     @Column
-    private UUID TeachersAge;
+    private UUID teachersAge;
 @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "fk_ClassId")
+    @JoinColumn(name = "fk_class_id")
     private List<Classes> classes;
 @OneToOne(mappedBy = "teacher")
-@JoinColumn(name = "fk_CourseId")
+@JoinColumn(name = "fk_course_id")
     private Course course;
 @OneToOne(mappedBy = "teacher")
-@JoinColumn(name="fk_DepartmentId")
+@JoinColumn(name="fk_department_id")
 private Departments departments;
 
 }

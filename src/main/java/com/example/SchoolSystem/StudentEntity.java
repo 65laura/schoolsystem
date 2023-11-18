@@ -20,35 +20,34 @@ public class StudentEntity {
     @Id
     @GeneratedValue
     @Column
-    @NotNull
-    private UUID studentId;
-    @Column(name = "FirstName", nullable = false)
-    private String firstName;
-    @Column(name = "LastName", nullable = false)
+   @NotNull private UUID studentId;
+    @Column
+    @NotNull private String firstName;
+    @Column
     private String lastName;
-    @Column(name = "gender", nullable = false)
+    @Column
     private String gender;
-    @Column(name = "dob")
+    @Column
     private String dob;
-    @Column(name = "FathersName", nullable = false)
+    @Column
     private String fathersName;
-    @Column(name = "MothersName")
+    @Column
     private String mothersName;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "fk_StudentId",referencedColumnName = "StudentId")
+    @JoinColumn(name = "fkstudent_id")
     private List<AttendanceEntity> attendanceEntity;
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "fk_ClassId")
+    @JoinColumn(name = "fk_class_id")
     private Classes classes;
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "fk_StudentId",referencedColumnName = "StudentId")
+    @JoinColumn(name = "fk_student_id")
     private List<Finances> finances;
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name="fk_StudentId",referencedColumnName = "StudentId")
+    @JoinColumn(name="fk_student_id")
     private List<Marks> marks;
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "fk_StudentId",referencedColumnName = "StudentId")
+    @JoinColumn(name = "fk_student_id")
     private List <Course> courses;
 
 }

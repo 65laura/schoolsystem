@@ -16,9 +16,9 @@ import java.util.UUID;
 public class Marks {
     @Id
     @Column
-    private UUID MarksId;
+    private UUID marksId;
     @Column
-    private float MarksObtained;
+    private float marksObtained;
     @Column
-    private char Ranking;
+    private char ranking;
 }

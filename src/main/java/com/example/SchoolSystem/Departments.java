@@ -16,14 +16,14 @@ import java.util.UUID;
 public class Departments {
     @Id
     @Column
-    private UUID DepartmentId;
+    private UUID departmentId;
     @Id
     @Column
-    private String DepartmentName;
+    private String departmentName;
     @Column
     private UUID members;
     @Column
-    private String MembersName;
+    private String membersName;
     @OneToOne(cascade = CascadeType.ALL)
     private Teacher teacher;
     @OneToOne(cascade = CascadeType.ALL)
