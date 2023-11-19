@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.antlr.v4.runtime.misc.NotNull;
 
 import java.util.UUID;
 
@@ -15,9 +16,9 @@ import java.util.UUID;
 
 public class Classes {
     @Id
-    @Column(name = "ClassId",nullable = false)
-    private UUID classID;
-    @Column(name = "ClassName",nullable = false)
+    @Column(name = "classId")
+    @NotNull private UUID classID;
+    @Column(name = "className")
     private String className;
     @OneToOne(mappedBy = "classes")
     private StudentEntity studentEntity;

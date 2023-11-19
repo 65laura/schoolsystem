@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.context.annotation.EnableMBeanExport;
+
 
 import java.util.List;
 import java.util.UUID;
@@ -13,7 +13,7 @@ import java.util.UUID;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="Teacher",schema = "public")
+@Table(name="teacher",schema = "public")
 
 public class Teacher {
     @Id

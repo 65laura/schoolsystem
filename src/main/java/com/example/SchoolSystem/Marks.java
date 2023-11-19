@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.antlr.v4.runtime.misc.NotNull;
 
 import java.util.UUID;
 
@@ -16,7 +17,7 @@ import java.util.UUID;
 public class Marks {
     @Id
     @Column
-    private UUID marksId;
+   @NotNull private UUID marksId;
     @Column
     private float marksObtained;
     @Column

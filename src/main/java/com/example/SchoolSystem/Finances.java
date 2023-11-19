@@ -7,6 +7,7 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.antlr.v4.runtime.misc.NotNull;
 
 import java.util.UUID;
 
@@ -19,7 +20,7 @@ import java.util.UUID;
 public class Finances {
     @Id
     @Column
-    private UUID financeId;
+   @NotNull private UUID financeId;
     @Column
     private float feesPaid;
     @Column

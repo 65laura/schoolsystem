@@ -22,7 +22,7 @@ public class StudentEntity {
     @Column
    @NotNull private UUID studentId;
     @Column
-    @NotNull private String firstName;
+    private String firstName;
     @Column
     private String lastName;
     @Column

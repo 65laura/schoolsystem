@@ -16,11 +16,11 @@ import java.util.UUID;
 public class Staff {
     @Id
     @Column
-    private UUID StaffId;
+    private UUID staffId;
     @Column
-    private String StaffName;
+    private String staffName;
     @Column
-    float Salary;
+    float salary;
     @OneToOne(mappedBy = "staff")
     @JoinColumn(name = "fk_department_name")
     private Departments departments;
