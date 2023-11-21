@@ -1,10 +1,12 @@
 package com.example.SchoolSystem;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.antlr.v4.runtime.misc.NotNull;
+
 
 import java.util.UUID;
 
@@ -12,16 +14,20 @@ import java.util.UUID;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "classes",schema = "public")
+@Table(name = "classes")
 
 public class Classes {
     @Id
-    @Column(name = "classId")
-    @NotNull private UUID classID;
-    @Column(name = "className")
+    @Column
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private UUID classID;
+    @Column
+    @JsonAlias("Class_name")
     private String className;
     @OneToOne(mappedBy = "classes")
     private StudentEntity studentEntity;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Teacher teacher;
 
 
 }

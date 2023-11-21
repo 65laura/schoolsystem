@@ -1,7 +1,6 @@
 package com.example.SchoolSystem;
 
 import jakarta.persistence.*;
-import jdk.jfr.Timespan;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,7 +12,7 @@ import java.util.UUID;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="Course",schema = "public")
+@Table(name="Course")
 
 public class Course {
     @Id
@@ -23,10 +22,11 @@ public class Course {
     private String courseName;
     @Column
     private String CourseDuration;
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "course_id")
+    @OneToMany(mappedBy = "course",cascade = CascadeType.ALL)
     private List<Marks> marks;
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne (mappedBy = "course",cascade =CascadeType.PERSIST)
     private Teacher teacher;
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    private StudentEntity studentEntity;
 
 }
