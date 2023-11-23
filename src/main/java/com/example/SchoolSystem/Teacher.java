@@ -13,7 +13,7 @@ import java.util.UUID;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="teacher",schema = "public")
+@Table(name="teacher")
 
 public class Teacher {
     @Id
@@ -23,14 +23,12 @@ public class Teacher {
     private String teachersName;
     @Column
     private UUID teachersAge;
-@OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "fk_class_id")
-    private List<Classes> classes;
+    private UUID ClassId;
 @OneToOne(mappedBy = "teacher")
-@JoinColumn(name = "fk_course_id")
+@JoinColumn(name = "course_id")
     private Course course;
 @OneToOne(mappedBy = "teacher")
-@JoinColumn(name="fk_department_id")
+@JoinColumn(name="department_id")
 private Departments departments;
 
 }

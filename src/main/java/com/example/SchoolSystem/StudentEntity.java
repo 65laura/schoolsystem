@@ -1,29 +1,30 @@
 package com.example.SchoolSystem;
 
 
+import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.antlr.v4.runtime.misc.NotNull;
-
-import java.util.List;
 import java.util.UUID;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "student",schema = "public")
-
+@Table(name = "student")
+@JsonPropertyOrder({"studentId","firstName","lastName","dob","gender","mothersName","fathersName"})
 public class StudentEntity {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column
-   @NotNull private UUID studentId;
+    private UUID studentId;
     @Column
+    @JsonAlias("first_name")
     private String firstName;
     @Column
+    @JsonAlias("last_name")
     private String lastName;
     @Column
     private String gender;
@@ -34,20 +35,9 @@ public class StudentEntity {
     @Column
     private String mothersName;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "fkstudent_id")
-    private List<AttendanceEntity> attendanceEntity;
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "fk_class_id")
+    @JoinColumn(name = "class_id")
     private Classes classes;
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "fk_student_id")
-    private List<Finances> finances;
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name="fk_student_id")
-    private List<Marks> marks;
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "fk_student_id")
-    private List <Course> courses;
+    private UUID CourseId;
 
 }

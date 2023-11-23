@@ -11,7 +11,7 @@ import java.util.UUID;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "staff",schema = "public")
+@Table(name = "staff")
 
 public class Staff {
     @Id
@@ -22,7 +22,7 @@ public class Staff {
     @Column
     float salary;
     @OneToOne(mappedBy = "staff")
-    @JoinColumn(name = "fk_department_name")
+    @JoinColumn(name = "department_id")
     private Departments departments;
 
 }

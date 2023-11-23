@@ -12,13 +12,13 @@ import java.util.UUID;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "classes",schema = "public")
+@Table(name = "classes")
 
 public class Classes {
     @Id
-    @Column(name = "classId")
-    @NotNull private UUID classID;
-    @Column(name = "className")
+    @Column
+     private UUID classID;
+    @Column
     private String className;
     @OneToOne(mappedBy = "classes")
     private StudentEntity studentEntity;

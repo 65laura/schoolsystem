@@ -15,14 +15,15 @@ import java.util.UUID;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="finaces",schema = "public")
+@Table(name="finances")
 
 public class Finances {
     @Id
     @Column
-   @NotNull private UUID financeId;
+    private UUID financeId;
     @Column
     private float feesPaid;
     @Column
     private float funding;
+    private UUID StudentId;
 }

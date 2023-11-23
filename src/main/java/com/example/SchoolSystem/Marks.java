@@ -12,14 +12,16 @@ import java.util.UUID;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "marks",schema = "public")
+@Table(name = "marks")
 
 public class Marks {
     @Id
     @Column
-   @NotNull private UUID marksId;
+   private UUID marksId;
     @Column
     private float marksObtained;
     @Column
     private char ranking;
+    private UUID StudentId;
+    private UUID CourseId;
 }

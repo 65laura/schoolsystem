@@ -18,16 +18,15 @@ import java.util.UUID;
 public class Departments {
     @Id
     @Column
-    @JsonInclude(JsonInclude.Include.NON_NULL)
     private UUID departmentId;
     @Column
     private String departmentName;
     @Column
     @JsonAlias("department_members")
-    private UUID members;
+    private int members;
     @Column
     private String membersName;
-    @OneToOne(mappedBy = "departments",cascade = CascadeType.PERSIST)
+    @OneToOne(cascade = CascadeType.PERSIST)
     private Teacher teacher;
     @OneToOne(cascade = CascadeType.PERSIST)
     private Staff staff;
