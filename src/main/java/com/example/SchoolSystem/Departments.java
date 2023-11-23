@@ -1,7 +1,6 @@
 package com.example.SchoolSystem;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
