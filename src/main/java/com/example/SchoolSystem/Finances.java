@@ -1,7 +1,9 @@
 package com.example.SchoolSystem;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,15 +15,14 @@ import java.util.UUID;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="finances")
+@Table(name="finaces",schema = "public")
 
 public class Finances {
     @Id
     @Column
-    private UUID financeId;
+   @NotNull private UUID financeId;
     @Column
     private float feesPaid;
     @Column
     private float funding;
-    private UUID StudentId;
 }

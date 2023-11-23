@@ -1,6 +1,5 @@
 package com.example.SchoolSystem;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,19 +11,18 @@ import java.util.UUID;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "staff")
+@Table(name = "staff",schema = "public")
 
 public class Staff {
     @Id
     @Column
-
     private UUID staffId;
     @Column
     private String staffName;
     @Column
     float salary;
     @OneToOne(mappedBy = "staff")
-    @JoinColumn(name = "fk_department_id")
+    @JoinColumn(name = "fk_department_name")
     private Departments departments;
 
 }

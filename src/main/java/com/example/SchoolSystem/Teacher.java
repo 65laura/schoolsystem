@@ -1,6 +1,5 @@
 package com.example.SchoolSystem;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,7 +13,7 @@ import java.util.UUID;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="teacher")
+@Table(name="teacher",schema = "public")
 
 public class Teacher {
     @Id
@@ -23,11 +22,14 @@ public class Teacher {
     @Column
     private String teachersName;
     @Column
-    private int teachersAge;
-@OneToOne(cascade = CascadeType.ALL)
+    private UUID teachersAge;
+@OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_class_id")
+    private List<Classes> classes;
+@OneToOne(mappedBy = "teacher")
 @JoinColumn(name = "fk_course_id")
     private Course course;
-@OneToOne(cascade = CascadeType.PERSIST)
+@OneToOne(mappedBy = "teacher")
 @JoinColumn(name="fk_department_id")
 private Departments departments;
 

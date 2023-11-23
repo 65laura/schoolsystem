@@ -1,43 +1,53 @@
- package com.example.SchoolSystem;
+package com.example.SchoolSystem;
 
 
-import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.antlr.v4.runtime.misc.NotNull;
 
-import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "student " )
-        public class StudentEntity {
+@Table(name = "student",schema = "public")
+
+public class StudentEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue
     @Column
-    private UUID studentId;
+   @NotNull private UUID studentId;
     @Column
-    @JsonAlias({"f_name"})
     private String firstName;
     @Column
-    @JsonAlias({"l_name"})
     private String lastName;
     @Column
     private String gender;
     @Column
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
-    private Date dob;
+    private String dob;
     @Column
     private String fathersName;
     @Column
     private String mothersName;
-    private UUID CourseId;
-    @OneToOne(cascade = {CascadeType.REMOVE,CascadeType.PERSIST})
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fkstudent_id")
+    private List<AttendanceEntity> attendanceEntity;
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "fk_class_id")
     private Classes classes;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_student_id")
+    private List<Finances> finances;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name="fk_student_id")
+    private List<Marks> marks;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_student_id")
+    private List <Course> courses;
 
 }

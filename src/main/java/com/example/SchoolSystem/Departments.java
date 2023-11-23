@@ -18,6 +18,7 @@ import java.util.UUID;
 public class Departments {
     @Id
     @Column
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private UUID departmentId;
     @Column
     private String departmentName;
