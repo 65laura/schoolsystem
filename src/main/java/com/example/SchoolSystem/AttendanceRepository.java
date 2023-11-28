@@ -1,4 +1,9 @@
 package com.example.SchoolSystem;
 
-public interface AttendanceRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.UUID;
+
+public interface AttendanceRepository extends JpaRepository <AttendanceEntity, UUID> {
+
 }
