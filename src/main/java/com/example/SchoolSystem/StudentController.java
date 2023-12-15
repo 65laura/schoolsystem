@@ -1,24 +1,25 @@
 package com.example.SchoolSystem;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.bind.annotation.*;
+import java.util.List;
 @RestController
-@RequestMapping("StudentEntity")
-
-
-
+@RequestMapping("/students")
 public class StudentController {
+    private final StudentService studentService;
     @Autowired
-    private StudentRepository studentRepository;
+    private StudentController(StudentService studentService){
+        this.studentService=studentService;
+    }
     @PostMapping
-    public String createStudentEntity(@RequestBody StudentEntity studentEntity){
-        return "student saved successfully";
-
+    public ResponseEntity<StudentEntity> createStudent(@RequestBody StudentEntity studentEntity){
+        StudentEntity newStudent= studentService.createStudent(studentEntity);
+    return ResponseEntity.ok(newStudent);
+    }
+    @GetMapping
+    public ResponseEntity<List<StudentEntity>>getAllStudents(){
+      List<StudentEntity> Students= studentService.getAllStudents();
+      return ResponseEntity.ok(Students);
     }
     }
 
