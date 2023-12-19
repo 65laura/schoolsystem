@@ -1,16 +1,12 @@
 package com.example.SchoolSystem;
-
-
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.List;
+import java.util.Date;
 import java.util.UUID;
-
 @Entity
 @Data
 @NoArgsConstructor
@@ -31,12 +27,11 @@ public class StudentEntity {
     @Column
     private String gender;
     @Column
-    private String dob;
+    private Date dob;
     @Column
     private String fathersName;
     @Column
     private String mothersName;
-
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "class_id")
     private Classes classes;

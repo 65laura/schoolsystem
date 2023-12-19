@@ -13,13 +13,14 @@ import java.util.UUID;
 @Table(name="teacher")
 
 public class Teacher {
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     @Column
     private UUID teachersId;
     @Column
     private String teachersName;
     @Column
-    private UUID teachersAge;
+    private int teachersAge;
     private UUID ClassId;
 @OneToOne(mappedBy = "teacher")
 @JoinColumn(name = "course_id")

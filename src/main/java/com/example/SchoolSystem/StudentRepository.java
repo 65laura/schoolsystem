@@ -6,6 +6,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.query.Param;
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 public interface StudentRepository extends JpaRepository<StudentEntity,UUID> {
         Page<StudentEntity> findAll(Pageable pageable);
@@ -14,6 +15,9 @@ public interface StudentRepository extends JpaRepository<StudentEntity,UUID> {
         Page<StudentEntity> getStudents(Pageable pageable);
         @Query(value ="SELECT * FROM StudentEntity s WHERE s.firstName= john",nativeQuery = true)
         Collection<StudentEntity>findAllActiveStudentsNative();
-        @Query("SELECT s FROM StudentEntity WHERE s.studentId=:studentId and s.firstName = :firstname")
-        StudentEntity findUserByStudentIdAndFirstNameNamedParams(@Param("studentId")UUID studentId,@Param("firstName")String firstName);
-}
+        @Query("SELECT s FROM StudentEntity s WHERE s.studentId = :studentId AND s.firstName = :firstName")
+        StudentEntity findUserByStudentIdAndFirstNameNamedParams(@Param("studentId") UUID studentId, @Param("firstName") String firstName);
+        @Query("SELECT new com.example.SchoolSystem.StudentDTO(s.studentId, s.firstName, s.lastName) FROM StudentEntity s WHERE s.studentId = :studentId")
+        Optional<StudentDTO> findStudentDTOById(@Param("studentId") UUID studentId);
+        }
+
