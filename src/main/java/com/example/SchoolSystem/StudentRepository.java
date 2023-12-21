@@ -18,6 +18,6 @@ public interface StudentRepository extends JpaRepository<StudentEntity,UUID> {
         @Query("SELECT s FROM StudentEntity s WHERE s.studentId = :studentId AND s.firstName = :firstName")
         StudentEntity findUserByStudentIdAndFirstNameNamedParams(@Param("studentId") UUID studentId, @Param("firstName") String firstName);
         @Query("SELECT new com.example.SchoolSystem.StudentDTO(s.studentId, s.firstName, s.lastName) FROM StudentEntity s WHERE s.studentId = :studentId")
-        Optional<StudentDTO> findStudentDTOById(@Param("studentId") UUID studentId);
+        List<StudentDTO> findStudentDTOById(@Param("studentId") UUID studentId);
         }
 

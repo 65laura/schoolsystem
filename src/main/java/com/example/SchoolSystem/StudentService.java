@@ -10,17 +10,12 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 @Service
-public class StudentService {
-    @Autowired
-    private StudentRepository studentRepository;
-    public StudentEntity createStudent(StudentEntity studentEntity){
-        return studentRepository.save(studentEntity);
-    }
-    public List<StudentEntity>getAllStudents(){
-        return studentRepository.findAll();
-    }
-   public Optional<StudentEntity>getStudentById(UUID studentId) {
-        return studentRepository.findById(studentId);
+public interface StudentService {
+     StudentEntity createStudent(StudentEntity studentEntity);
+
+     List<StudentEntity>getAllStudents();
+
+    List<StudentDTO>findStudentDTOById(UUID studentId) ;
+
 }
-   public Optional<StudentDTO>findStudentDTOById(UUID studentId){return studentRepository.findStudentDTOById(studentId);}
-    }
+
