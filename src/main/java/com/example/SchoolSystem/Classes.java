@@ -1,5 +1,4 @@
 package com.example.SchoolSystem;
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,7 +11,6 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "classes")
-
 public class Classes {
     @Id
     @Column
